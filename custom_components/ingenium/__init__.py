@@ -3,7 +3,7 @@ import logging
 
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
+from homeassistant.const import CONF_HOST
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.typing import ConfigType
@@ -18,8 +18,6 @@ CONFIG_SCHEMA = vol.Schema(
         DOMAIN: vol.Schema(
             {
                 vol.Optional(CONF_HOST): cv.string,
-                vol.Optional(CONF_USERNAME): cv.string,
-                vol.Optional(CONF_PASSWORD): cv.string,
             }
         )
     },
@@ -38,11 +36,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Ingenium from a config entry."""
     api = IngeniumAPI()
-
-    if CONF_USERNAME in entry.data and CONF_PASSWORD in entry.data:
-        api.remote(entry.data[CONF_USERNAME], entry.data[CONF_PASSWORD])
-    elif CONF_HOST in entry.data:
-        api.local(entry.data[CONF_HOST])
+    api.local(entry.data[CONF_HOST])
 
     await api.load(debug=False)
 
