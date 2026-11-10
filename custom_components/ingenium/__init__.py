@@ -1,0 +1,67 @@
+"""The Ingenium integration."""
+import logging
+
+import voluptuous as vol
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers.typing import ConfigType
+from ingeniumpy import IngeniumAPI
+
+from .const import DOMAIN
+
+_LOGGER = logging.getLogger(__name__)
+
+CONFIG_SCHEMA = vol.Schema(
+    {
+        DOMAIN: vol.Schema(
+            {
+                vol.Optional(CONF_HOST): cv.string,
+                vol.Optional(CONF_USERNAME): cv.string,
+                vol.Optional(CONF_PASSWORD): cv.string,
+            }
+        )
+    },
+    extra=vol.ALLOW_EXTRA,
+)
+
+PLATFORMS = ["switch", "cover", "sensor", "light", "climate"]
+
+
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """Set up the Ingenium component."""
+    hass.data[DOMAIN] = {}
+    return True
+
+
+async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    """Set up Ingenium from a config entry."""
+    api = IngeniumAPI()
+
+    if CONF_USERNAME in entry.data and CONF_PASSWORD in entry.data:
+        api.remote(entry.data[CONF_USERNAME], entry.data[CONF_PASSWORD])
+    elif CONF_HOST in entry.data:
+        api.local(entry.data[CONF_HOST])
+
+    await api.load(debug=False)
+
+    hass.data[DOMAIN][entry.entry_id] = api
+
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+
+    return True
+
+
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    """Unload a config entry."""
+    api: IngeniumAPI = hass.data[DOMAIN][entry.entry_id]
+
+    unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+
+    if unload_ok:
+        hass.data[DOMAIN].pop(entry.entry_id)
+
+    await api.close()
+
+    return unload_ok

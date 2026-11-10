@@ -1,0 +1,25 @@
+{
+  "config": {
+    "title": "Ingenium",
+    "step": {
+      "user": {
+        "title": "Conectar con Ingenium",
+        "description": "Selecciona el modo de conexión y configura los parámetros de acceso a tu instalación Ingenium.",
+        "data": {
+          "mode": "Modo de conexión (Remoto / Local)",
+          "host": "Dirección IP / Host",
+          "username": "Usuario",
+          "password": "Contraseña"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No se pudo conectar con la pasarela Ingenium",
+      "invalid_auth": "Usuario o contraseña inválidos",
+      "unknown": "Error inesperado"
+    },
+    "abort": {
+      "already_configured": "Esta pasarela o cuenta Ingenium ya está configurada."
+    }
+  }
+}

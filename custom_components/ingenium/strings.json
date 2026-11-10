@@ -1,0 +1,25 @@
+{
+  "config": {
+    "title": "Ingenium",
+    "step": {
+      "user": {
+        "title": "Connect to Ingenium",
+        "description": "Select the connection mode and configure the connection parameters to your Ingenium installation.",
+        "data": {
+          "mode": "Connection mode (Remote / Local)",
+          "host": "IP Address / Hostname",
+          "username": "Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the Ingenium gateway",
+      "invalid_auth": "Invalid username or password",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "This Ingenium gateway or account is already configured."
+    }
+  }
+}
