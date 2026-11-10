@@ -14,5 +14,6 @@
     "@Ingenium-SL"
   ],
   "iot_class": "local_push",
-  "integration_type": "hub"
+  "integration_type": "hub",
+  "homeassistant": "2023.1.0"
 }
