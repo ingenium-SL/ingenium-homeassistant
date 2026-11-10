@@ -31,14 +31,14 @@ This component connects to your local Ingenium IP gateway or remote Ingenium clo
 3. Click the three dots in the top right corner and select **Custom repositories**.
 4. Paste the URL of this repository:
    ```text
-   https://github.com/ingeniumsl/homeassistant-ingenium
+   https://github.com/ingenium-SL/ingenium-homeassistant
    ```
 5. Select category: **Integration** and click **Add**.
 6. Search for `Ingenium`, click **Download**, and restart Home Assistant.
 
 ### Method 2: Manual Installation
 
-1. Download the latest release from the [Releases](https://github.com/ingeniumsl/homeassistant-ingenium/releases) page.
+1. Download the latest release from the [Releases](https://github.com/ingenium-SL/ingenium-homeassistant/releases) page.
 2. Copy the entire `custom_components/ingenium` directory into your Home Assistant `<config>/custom_components/` folder.
 3. The directory structure should look like:
    ```text

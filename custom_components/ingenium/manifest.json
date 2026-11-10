@@ -3,8 +3,8 @@
   "name": "Ingenium",
   "version": "1.0.0",
   "config_flow": true,
-  "documentation": "https://github.com/ingeniumsl/homeassistant-ingenium",
-  "issue_tracker": "https://github.com/ingeniumsl/homeassistant-ingenium/issues",
+  "documentation": "https://github.com/ingenium-SL/ingenium-homeassistant",
+  "issue_tracker": "https://github.com/ingenium-SL/ingenium-homeassistant/issues",
   "requirements": [
     "ingeniumpy==0.8.15",
     "pyserial==3.5"
