@@ -11,8 +11,7 @@
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/ingenium-SL/ingenium-homeassistant/issues",
   "requirements": [
-    "ingeniumpy==0.8.15",
-    "pyserial==3.5"
+    "ingeniumpy==0.8.15"
   ],
   "version": "1.0.0"
 }
