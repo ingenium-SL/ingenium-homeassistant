@@ -1,6 +1,6 @@
 # Ingenium Home Assistant Integration
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/integration)
 [![License](https://img.shields.io/github/license/ingenium-SL/ingenium-homeassistant)](LICENSE)
 [![GitHub release](https://img.shields.io/github/release/ingenium-SL/ingenium-homeassistant)](https://github.com/ingenium-SL/ingenium-homeassistant/releases)
 
@@ -31,9 +31,9 @@ Connects locally via the Ingenium ETH/IP gateway using the local network IP addr
 
 ## Installation via HACS
 
-1. Open HACS → **Integrations** → ⋮ menu → **Custom repositories**
-2. Add `https://github.com/ingenium-SL/ingenium-homeassistant` as an **Integration**
-3. Search for **Ingenium** and install it
+1. Open **HACS** in Home Assistant
+2. Search for **Ingenium** and select it
+3. Click **Download**
 4. Restart Home Assistant
 
 ---
